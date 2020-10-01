@@ -23,8 +23,12 @@ router.route('/')
   .post(async (req, res) => {
     const userInput = req.body;
     // const query = 'INSERT INTO users SET ?;';
-    const result = await connection.query(insertUser, userInput);
-    res.json(result);
+    try {
+      const result = await connection.query(insertUser, userInput);
+      res.json(result);
+    } catch (error) {
+      console.log(error);
+    }
   });
 
 module.exports = router;
