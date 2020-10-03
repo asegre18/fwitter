@@ -4,6 +4,13 @@ const { insertUser } = require('../../../model/userQueries');
 const { fetchUsers } = require('../../../model/userOrm');
 
 // /api/users prepended to every route
+
+// separation of concern
+// anything that has to do with routing stays in routing
+// anything that has to do with models, stays in models
+// all of the logic that happens when an endpoint/API
+// goes to the controller
+
 router.route('/')
   .get(async (_req, res) => {
     try {
